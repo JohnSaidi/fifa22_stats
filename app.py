@@ -34,12 +34,11 @@ def root():
 @app.route('/playerz')
 def allplayers():
     all_players = get_all_playernames()
-
-    if all_players:
-        if request.method == "POST":
-            teamname = request.form['search']
-            # if teamname["nationality_name"] in all_nations:
-            return render_template(url_for('profile')) 
+    # if all_players:
+    #     if request.method == "POST":
+    #         teamname = request.form['search']
+    #         # if teamname["nationality_name"] in all_nations:
+    #         return render_template(url_for('profile')) 
     return render_template('playertable.html', p_name=all_players)
 
 @app.route('/player_profile/<clubname>/<playername>/')
