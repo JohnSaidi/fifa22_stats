@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<div class="ui container center aligned">
+    <table class="ui striped table" >
+        <thead>
+        <tr>
+            <th>Nation</th>
+            <th>Overall Rating</th>
+        </tr>
+        </thead>
+    
+        {% for name in p_name %}
+        <tbody>
+        <tr>
+            <td>
+                <h4 class="ui image header">
+                    <img src={{name['nation_flag_url']}} class="ui mini rounded image">
+                </h4>
+                <a href="/players/nationality/{{name['nationality_name']}}">{{name['nationality_name']}}</a>
+            </td>
+            <td>⭐⭐⭐⭐⭐</td>
+        </tr>
+        </tbody>
+        {% endfor %}
+
+    </table>
+</div>
+
+
+{% endblock %}

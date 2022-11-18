@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<div style="margin-top: 200px" class="ui container center aligned">
+    <div class="ui massive form">
+        <form action="/" method="post">
+            <div class="field">
+                <!-- <label>Last Name</label> -->
+                <input placeholder="Search Teams, Nations, or Player Names" type="text" name="search" style="text-align: center">
+            </div>
+            <button class="ui submit button" type="submit" type="submit">Search</button>  
+        </form>
+  </div>
+</div>
+
+{% endblock %}

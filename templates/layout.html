@@ -1,0 +1,27 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+<title>FIFA 22 STATS</title>
+
+</head>
+<body>
+    <head>
+      <div class="ui inverted menu">
+        <div class="ui four item menu">
+          <a class="item"  href="{{url_for('root')}}">Home</a>
+          <a class="item" href="{{url_for('allplayers')}}">Players</a>
+          <a class="inactive item">Sport Clubs</a>
+          <a class="item" href="{{url_for('allcountries')}}">Countries</a>
+        </div> 
+      </div>   
+    </head>
+    <br>
+    <div style="margin-top: 20px" class="ui container">
+        
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

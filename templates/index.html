@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="ui three column grid">
+        <!-- <h1>Player Details</h1> -->
+        {% for name in p_name%}
+        <div class="ui centered card">
+            <div class="image">
+            <img src={{name['player_face_url']}}>
+            </div>
+            <div class="content">
+            <a class="header">{{name['short_name']}}</a>
+            <div class="meta">
+                <span class="date">Joined {{name['club_joined']}}</span>
+            </div>
+            <div class="description">
+                {{name['short_name']}} Plays as a {{name['club_position']}}.
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div> 
+{% endblock %}
+        

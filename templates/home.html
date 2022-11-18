@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="ui two column centered grid">
+        
+        <div class="column">
+            <div class="ui input focus">
+                <!-- <input type="text" placeholder="Team Name...">
+                <input type="text" placeholder="Enter Team Name...">
+                <input type="text" placeholder="Enter Team Name...">
+                <input type="submit"> -->
+
+                <form action="/team/{teamname}" method="post">
+                    <div class="ui input focus">
+                        <input type="number" name="teamname" />
+                        <input type="submit">
+                    </div>
+                </form>
+            </div>
+           <h1>{{number}}</h1>
+        </div>
+    </div>
+{% endblock %}

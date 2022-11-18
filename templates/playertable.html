@@ -1,0 +1,40 @@
+{% extends "layout.html"%}
+
+{% block content %}
+
+
+<div class="ui container center aligned">
+
+    <table class="ui striped table" >
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date Joined</th>
+            <th>Club Team</th>
+            <th>Overall Rating</th>
+        </tr>
+        </thead>
+    
+        {% for name in p_name %}
+        <tbody>
+        <tr>
+            <td>
+                <h4 class="ui image header">
+                    <img src={{name['player_face_url']}} class="ui mini rounded image">
+                </h4>
+                <a href="/player_profile/{{name['club_name']}}/{{name['short_name']}}">{{name['short_name']}}</a>
+            </td>
+            <td>{{name['club_joined']}}</td>
+            <td><a href="/players/club-name/{{name['club_name']}}">{{name['club_name']}}</a></td>
+            <td>{{name['overall']}}</td>
+        </tr>
+        </tbody>
+        {% endfor %}
+    
+    </table>
+
+</div>
+
+
+
+{% endblock %}
