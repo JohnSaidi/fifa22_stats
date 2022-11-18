@@ -1,5 +1,9 @@
 from flask import Flask, render_template, request, url_for, redirect
-from dbquery import get_info_by_playername, get_players_by_teamName, get_players_by_nationalTeam, get_players_by_tName_pName, get_players_by_clubName_nationality, get_all_playernames, get_all_nation_names
+from dbquery import ( 
+    get_info_by_playername, get_players_by_teamName, get_players_by_nationalTeam, 
+    get_players_by_tName_pName, get_players_by_clubName_nationality, 
+    get_all_playernames, get_all_nation_names
+)
 
 
 
