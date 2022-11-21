@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="ui grid" style="margin-top: 150px">
+    <div class="three column row">
+      <div class="column">
+        <div class="ui centered card">
+            <!-- <h1>Player Details</h1> -->
+            {% for name in p_name%}
+            <div class="ui centered card">
+                <div class="image">
+                <img src={{name['player_face_url']}}>
+                </div>
+                <div class="content">
+                <a class="header">{{name['short_name']}}</a>
+                <div class="meta">
+                    <span class="date">Joined {{name['club_joined']}}</span>
+                </div>
+                <div class="description">
+                    Plays for {{name['club_name']}} as a {{name['club_position']}}.
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div> 
+
+
+
+      </div>
+
+      <div class="column">
+
+                
+        <div class="ui container center aligned">
+                
+            <table class="ui striped table" >
+                <thead>
+                <tr>
+                    <th class="left aligned">Player 1</th>
+                    <th class="center aligned">STATS</th>
+                    <th class="right aligned">PLayer 2</th>
+                </tr>
+                </thead>
+                {% for stats in p1 %} 
+                    {% for stat in p2 %} 
+                
+                        <tbody>
+                        <tr>
+                            
+                            <td>{{stats['pace']}}</td> 
+                            <td class="center aligned">Pace</td>
+                            <td class="right aligned">{{stat['pace']}}</td>
+                    
+                        </tr>
+
+                        <tr>
+                            
+                            <td>{{stats['shooting']}}</td> 
+                            <td class="center aligned">Shooting</td>
+                            <td class="right aligned">{{stat['shooting']}}</td>
+                    
+                        </tr>
+
+                        <tr>
+                            
+                            <td>{{stats['passing']}}</td> 
+                            <td class="center aligned">Passing</td>
+                            <td class="right aligned">{{stat['passing']}}</td>
+                    
+                        </tr>
+
+                        <tr>
+                            
+                            <td>{{stats['dribbling']}}</td> 
+                            <td class="center aligned">Dribbling</td>
+                            <td class="right aligned">{{stat['dribbling']}}</td>
+                    
+                        </tr>
+
+                        <tr>
+                            
+                            <td>{{stats['defending']}}</td> 
+                            <td class="center aligned">Defending</td>
+                            <td class="right aligned">{{stat['defending']}}</td>
+                    
+                        </tr>
+
+                        <tr>
+                            
+                            <td>{{stats['physic']}}</td> 
+                            <td class="center aligned">Physic</td>
+                            <td class="right aligned">{{stat['physic']}}</td>
+                    
+                        </tr>
+                        </tbody>
+                    {% endfor %}
+                {% endfor %}
+                
+            
+            </table>
+
+        </div>
+
+      </div>
+
+      <div class="column">
+        <div class="ui centered card">
+            <!-- <h1>Player Details</h1> -->
+            {% for name in p_name1%}
+            <div class="ui centered card">
+                <div class="image">
+                <img src={{name['player_face_url']}}>
+                </div>
+                <div class="content">
+                <a class="header">{{name['short_name']}}</a>
+                <div class="meta">
+                    <span class="date">Joined {{name['club_joined']}}</span>
+                </div>
+                <div class="description">
+                    Plays for {{name['club_name']}} as a {{name['club_position']}}.
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div> 
+      </div>
+    </div>
+</div>
+
+{% endblock %}

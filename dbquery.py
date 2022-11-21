@@ -27,6 +27,9 @@ def get_all_nation_names():
 def get_players_by_nationalTeam(team_name):
     return db.execute(f"SELECT * FROM fifa22data WHERE nationality_name = '{team_name}'")
 
+def get_player_stats(playername):
+    return db.execute(f"SELECT short_name, pace, shooting, passing, dribbling, defending, physic FROM fifa22data WHERE short_name = '{playername}'")
+
 # def get_stats_by_playername(playername):
 #     return db.execute("SELECT short_name, overall, pace, shooting, passing, }dribbling, defending, physic  FROM fifa22data WHERE short_name = :short_name", short_name=playername)
 
@@ -35,5 +38,7 @@ def get_players_by_nationalTeam(team_name):
 
 # def get_playernames_by_nationalTeam(nationalTeam):
 #     return db.execute("SELECT short_name FROM fifa22data WHERE nationality_name = :nationality_name", nationality_name=nationalTeam)
+
+
 
 
