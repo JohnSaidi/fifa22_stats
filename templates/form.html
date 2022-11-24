@@ -8,9 +8,9 @@
         <form action="/" method="post">
             <div class="field">
                 <!-- <label>Last Name</label> -->
-                <input placeholder="Search Teams, Nations, or Player Names" type="text" name="search" style="text-align: center">
+                <input placeholder="Search Teams, Nations, or Player Names" type="text" name="search" id="searchinput" onkeyup="searchPage()" style="text-align: center">
             </div>
-            <button class="ui submit button" type="submit" type="submit">Search</button>  
+            <button  class="huge ui black button" type="submit" id="searchbtn" disabled>Search</button>  
         </form>
   </div>
 </div>

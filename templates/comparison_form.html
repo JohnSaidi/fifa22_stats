@@ -7,17 +7,17 @@
         <form action="/compare-players" method="post">
             
                     <div class="field">
-                        <input placeholder="Player 1 Name" type="text" name="p1" style="text-align: center">
+                        <input placeholder="Player 1 Name" type="text" name="p1" id="compareinput" onkeyup="comparePage()" style="text-align: center">
                     </div>
                 
 
              
                     <div class="field" style="margin-top: 25px;">
-                        <input placeholder="Player 2 Name" type="text" name="p2" style="text-align: center">
+                        <input placeholder="Player 2 Name" type="text" name="p2" id="compareinput" onkeyup="comparePage()" style="text-align: center">
                     </div>
                
                     
-            <button class="ui submit button" type="submit" style="margin-top: 20px;">Compare</button> 
+            <button class="big ui black button" type="submit" id="comparebtn" style="margin-top: 20px;" disabled>Compare</button> 
         </form>
     </div>
 </div>
