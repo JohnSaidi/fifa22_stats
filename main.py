@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, url_for, redirect, abort
+import os
 from dbquery import ( 
     get_info_by_playername, get_players_by_teamName, get_players_by_nationalTeam, 
     get_players_by_tName_pName, get_players_by_clubName_nationality, 
@@ -124,4 +125,4 @@ def stats_comparison(player1, player2):
 # Cashing
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
