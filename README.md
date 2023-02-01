@@ -10,7 +10,7 @@ pip install -r requirements.txt
 
 Running The site on localhost:
 ```bash
-python3 app.py
+python3 main.py
 ```
 
 ## FIFA22 OFFICIAL DATASET
