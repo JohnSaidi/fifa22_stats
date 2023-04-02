@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, url_for, redirect, abort
+
 import os
 from dbquery import ( 
     get_info_by_playername, get_players_by_teamName, get_players_by_nationalTeam, 
     get_players_by_tName_pName, get_players_by_clubName_nationality, 
-    get_all_playernames, get_all_nation_names, get_player_stats
+    get_all_playernames, get_all_nation_names, get_player_stats, get_all_club_names
 )
 
 
@@ -11,29 +12,23 @@ from dbquery import (
 app = Flask(__name__)
 
 
-# implement player search by nationality, club name and player profile
-@app.route('/', methods=['GET','POST'])
-def root():
+@app.route('/', methods=['GET', 'POST'])
+def home():
     searchval = request.form.get('search')
-
-    all_nations = get_all_nation_names()
+    all_nations = [nation['nationality_name'].lower() for nation in get_all_nation_names()]
+    all_teams = [team['club_name'].lower() for team in get_all_club_names()]
     player_info = get_info_by_playername(searchval)
 
     if request.method == "POST":
-        if all_nations:
-            for teams in all_nations:
-                if searchval in teams['nationality_name']:
-                    return redirect(url_for('player_by_country', nation=searchval))
-                # return render_template('error.html', error = 'Nation Not Found, Check Spelling or Try Again', Back = url_for('root'))
-        if player_info:    
-            for players in player_info:
-                if searchval in players['short_name']:
-                    return redirect(url_for('profile2',playername=searchval))
-                return render_template('error.html', error = 'Nation Not Found, Check Spelling or Try Again', Back = url_for('root'))
-        if not all_nations or not player_info:
-            return render_template('error.html', error = 'Only Search For Player By Entering Their Names, Nationality or Club Names', Back = url_for('root'))
+        if searchval.lower() in all_nations:
+            return redirect(url_for('player_by_country', nation=searchval))
+        elif searchval.lower() in all_teams:
+            return redirect(url_for('player_by_club', clubname=searchval))
+        elif player_info:
+            return redirect(url_for('profile2', playername=searchval))
+        else:
+            return render_template('error.html', error='Search term not found')
 
- 
     return render_template('form.html')
 
 
@@ -56,6 +51,7 @@ def allplayers():
     all_players = get_all_playernames()
     return render_template('playertable.html', p_name=all_players)
 
+
 @app.route('/player_profile/<clubname>/<playername>/')
 def profile(clubname, playername):
     player_info = get_players_by_tName_pName(clubname, playername)
@@ -69,7 +65,7 @@ def profile2(playername):
     player_info = get_info_by_playername(playername)
     if not player_info:
         return render_template('error.html', error = 'Check player name Spelling or try again. (e.g player_profile/M. Salah)',
-                                            Back = url_for('root')
+                                            Back = url_for('home')
         )
     return render_template('playertable.html', p_name=player_info)
 
