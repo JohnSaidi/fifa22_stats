@@ -1,0 +1,11 @@
+{
+    "name": "FiFa_Stats",
+    "runtime": "python",
+    "builds": [
+      {
+        "src": ".",
+        "use": "@vercel/node",
+        "entrypoint": "main.py"
+      }
+    ]
+  }
