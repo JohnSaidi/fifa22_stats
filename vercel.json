@@ -1,5 +1,5 @@
 {
-    "name": "FiFa_Stats",
+    "name": "fifastats",
     "runtime": "python",
     "builds": [
       {
