@@ -2,8 +2,7 @@
     "builds": [
       {
         "src": ".",
-        "use": "@vercel/node",
-        "entrypoint": "main.py"
+        "use": "@vercel/node"
       }
     ]
   }
